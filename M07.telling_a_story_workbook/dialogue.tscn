@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8o5qo3on08yk"]
+
+[ext_resource type="Shader" uid="uid://cs15e2hgd2lan" path="res://assets/sliding_background.gdshader" id="1_758ep"]
+[ext_resource type="Theme" uid="uid://drays61pfu7xc" path="res://lessons/main_theme.tres" id="1_q2h7b"]
+[ext_resource type="Texture2D" uid="uid://bnly1gkbxw6b5" path="res://assets/bubble_pattern.png" id="2_hoxo3"]
+[ext_resource type="Texture2D" uid="uid://copkt78vgp37i" path="res://assets/sophia.png" id="3_q2h7b"]
+[ext_resource type="Texture2D" uid="uid://d000xjtr4iqtk" path="res://assets/emotion_regular.png" id="5_iq77p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iq77p"]
+shader = ExtResource("1_758ep")
+shader_parameter/pattern_sampler = ExtResource("2_hoxo3")
+shader_parameter/bg_color = Color(0.98390216, 0.873229, 0.9258942, 1)
+shader_parameter/pattern_color = Color(0.9412574, 0.44467068, 0.657658, 1)
+shader_parameter/pattern_size = 256.0
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -958.0
+offset_top = 7.0
+offset_right = 2.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q2h7b")
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_iq77p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -2.0
+offset_right = -44.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.64651984, 0.52890515, 0.7291369, 1)
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 416.0
+offset_right = 717.0
+offset_bottom = 1079.0
+texture = ExtResource("3_q2h7b")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Expression" type="TextureRect" parent="Body"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 30.0
+offset_right = 556.0
+offset_bottom = 670.0
+texture = ExtResource("5_iq77p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 785.0
+offset_top = 542.0
+offset_right = -674.0
+offset_bottom = -407.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "hello!"
+fit_content = true
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -103.0
+offset_right = -52.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_q2h7b")
+text = "next"
